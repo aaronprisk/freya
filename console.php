@@ -2,6 +2,9 @@
 // START SESSION
 session_start();
 
+// ASSIGN HOST VARIABLE
+$host = $_SERVER['HTTP_HOST'];
+
 // LOGOUT REQUEST
 if (isset($_POST["logout"])) { unset($_SESSION["user"]); }
 
@@ -21,5 +24,5 @@ $killstr = shell_exec('killall websockify > /dev/null 2>/dev/null &');
 $vncstr = shell_exec('/var/www/html/noVNC/utils/novnc_proxy --vnc localhost:' . $vncport . ' --idle-timeout 10 > /dev/null 2>/dev/null &');
 
 // OPEN NOVNC DISPLAY PAGE
-header('location: http://10.9.1.5:6080/vnc.html');
+header('location: http://' . $host . ':6080/vnc.html');
 ?>
