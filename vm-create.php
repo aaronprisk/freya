@@ -20,13 +20,13 @@ $network = escapeshellarg($_POST['network']);
 
 // CHECK FOR DISK CREATION
 if (isset($_POST['existdisk']) && $_POST['newdisk'] == "")  {
-    echo "GONNA USE OLD DRIVE MUTHFUCKA!";
+    echo "Using existing disk...";
     $disk=escapeshellarg($_POST['existdisk']);
     echo $disk;
 }
 
 if ($_POST['newdisk'] != "") {
-    echo "MAKING A NEW DRIVE!";
+    echo "Creating new disk...";
     $disk='/var/lib/libvirt/images/' . $name . '.qcow2,size=' . $newdisk . ' ';
     echo $disk;
 }
