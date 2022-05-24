@@ -26,3 +26,11 @@ The default username is **freya** and password is **lady**.
 
 ## Important Notes
 Freya is still very young and should not be used in production. If you want to help with Freya’s development, please feel free to take it for a test drive, send in any issues or submit pull requests. 
+
+## Screenshots
+VM Page
+![Alt text](https://github.com/aaronprisk/freya/raw/main/screenshots/1.png "VM Page")
+Freya Dashboard
+![Alt text](https://github.com/aaronprisk/freya/raw/main/screenshots/2.png "Freya Dashboard")
+Machines Page
+![Alt text](https://github.com/aaronprisk/freya/raw/main/screenshots/3.png "Machines Page")
