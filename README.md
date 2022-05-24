@@ -20,6 +20,9 @@ Browse to freya directory, then simply run:
 ```
 chmod +x install.sh && ./install.sh
 ```
+After installation, simply browse to the ip address of your server to access the Freya Dashbaord.
+
+The default username is **freya** and password is **lady**.
 
 ## Important Notes
 Freya is still very young and should not be used in production. If you want to help with Freya’s development, please feel free to take it for a test drive, send in any issues or submit pull requests. 
