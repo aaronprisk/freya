@@ -14,6 +14,9 @@ if (!isset($_SESSION["user"])) {
 // INCLUDE CONNECT FILE
 include 'connect.php';
 
+// SET HOSTNAME VARIABLE
+$host = $_SERVER['HTTP_HOST'];
+
 // PULL SERVER INFO FOR CREATION
 $netflags= VIR_NETWORKS_ALL;
 $net = libvirt_list_networks($conn, $netflags);
@@ -37,25 +40,24 @@ echo '
                    <form method="POST" action="vm-create.php" enctype="multipart/form-data">
                      <div class="form-group col-md-3">
                        <label for="InputName">Virtual Machine Name</label>
-                       <input type="text" class="form-control" id="InputName" name="hostname" aria-describedby="nameHelp" placeholder="Enter Name">
+                       <input type="text" class="form-control" id="InputName" name="hostname" aria-describedby="nameHelp" placeholder="Enter Name" required>
                        <small id="nameHelp" class="form-text text-muted"></small>
                      </div>
                      <div class="form-group col-md-3">
                            <label for="InputName">Server</label>
                            <select class="custom-select" name="server">
-                           <option value="0" selected>Freya (This Server)</option>
-                           <option value="1">Odin</option>
+                           <option value="0" selected>' . $host . ' (This Server)</option>
                          </select>
                      </div>
                      <div class="form-group col-md-2">
                        <label for="InputMemory">Memory (MBs)</label>
-                       <input type="text" class="form-control" id="InputMemory" name="memory" aria-describedby="memoryHelp" placeholder="1024">
+                       <input type="text" class="form-control" id="InputMemory" name="memory" aria-describedby="memoryHelp" placeholder="1024" required>
                        <small id="memoryHelp" class="form-text text-muted">1GB = 1024MBs</small>
                      </div>
                      <div class="form-group col-md-2">
                        <label for="InputCPU">Virtual CPUs</label>
-                       <input type="text" class="form-control" id="InputCPU" name="cpus" aria-describedby="cpuHelp" placeholder="1">
-                       <small id="cpuHelp" class="form-text text-muted">Node has 8 avaiable CPUs</small>
+                       <input type="text" class="form-control" id="InputCPU" name="cpus" aria-describedby="cpuHelp" placeholder="1" required>
+                       <small id="cpuHelp" class="form-text text-muted"></small>
                      </div>
                      <hr>
                      <p class="h4">Storage Info</p>
@@ -89,7 +91,7 @@ echo '
                      <hr>
                      <p class="h4">Network Info</p>
                      <div class="form-group col-md-3">
-                         <select class="custom-select" name="network">
+                         <select class="custom-select" name="network" required>
                            <option value="" selected>Select Network</option>
 ';
                            for ($i = 0, $n = count($net) ; $i < $n ; $i++)
@@ -102,7 +104,7 @@ echo '
                      <hr>
                      <p class="h4">Choose ISO</p>
                      <div class="form-group col-md-3">
-                         <select class="custom-select" name="iso">
+                         <select class="custom-select" name="iso" required>
                              <option value="" selected>Select iso image</option>
 ';
                                $isoList = glob('uploads/*');
