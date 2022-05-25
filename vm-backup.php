@@ -27,6 +27,6 @@ $domainbackup->asXML('/mnt/backups/' . $vmid . '/' . $vmid . '.xml');
 
 // START VIRSH BACKUP
 echo "Running backup...";
-$shellout = shell_exec('virsh -c qemu:///system backup-begin Omega /mnt/backups/' . $vmid . '/' . $vmid . '.xml');
+$shellout = shell_exec('virsh -c qemu:///system backup-begin ' . $vmid . ' /mnt/backups/' . $vmid . '/' . $vmid . '.xml');
 echo "<pre>$shellout</pre>";
 ?>
