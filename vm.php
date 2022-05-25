@@ -53,6 +53,7 @@ if (libvirt_domain_get_id($res) != "-1") {echo " <a class='btn  btn-primary' hre
 echo " <button class='btn btn-secondary dropdown-toggle' type='button'id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true'aria-expanded='false'>VM Actions</button>
         <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
           <a class='dropdown-item' href='edit.php?vmid=" . $vmid . "'>Edit VM</a>
+          <a class='dropdown-item' href='vm-backup.php?vmid=" . $vmid . "'>Backup VM</a>
           <a class='dropdown-item' href='#'>Migrate VM</a>";
           if (libvirt_domain_get_id($res) != "-1") {echo "<a class='dropdown-item' href='destroy.php?vmid=" . $vmid . "'>Force Off VM</a>";}
 echo "
@@ -165,7 +166,7 @@ echo '
                                 <div class="card-body">
 ';
 
-                               $backupList = glob('/mnt/backups/' . $vmid . '/*');
+                               $backupList = glob('/mnt/backups/' . $vmid . '/*.qcow2');
                                foreach($backupList as $filename){
                                    if(is_file($filename)){
                                        echo $filename, '<br>';
