@@ -1,0 +1,8 @@
+<domainbackup>
+  <disks>
+    <disk name='vda' backup='yes' type='file'>
+      <target file='/mnt/backups/backup.qcow2'/>
+      <driver type='raw'/>
+    </disk>
+  </disks>
+</domainbackup>
