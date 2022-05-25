@@ -48,15 +48,20 @@ tar -xvf /tmp/v1.3.0.tar.gz -C /tmp
 sudo mkdir /var/www/html/noVNC
 sudo cp -R /tmp/noVNC-1.3.0/* /var/www/html/noVNC/
 
-echo "Copying server files to webroot..."
-sudo cp -R * /var/www/html/ >> /dev/null
-sudo rm /var/www/html/index.html
 echo "Creating service directories..."
 sudo mkdir /opt/seidr >> /dev/null
+sudo mkdir /mnt/backups >> /dev/null
+
+echo "Copying server files to webroot..."
+sudo cp -R * /var/www/html/ >> /dev/null
+sudo mv /var/www/html/seidr/* /opt/seidr/
+sudo rm -r /var/www/html/seidr
+sudo rm /var/www/html/index.html
 
 echo "Configuring user and group permissions..."
 sudo chown -R www-data:www-data /var/www/html >> /dev/null
 sudo chown -R www-data:www-data /opt/seidr >> /dev/null
+sudo chown -R www-data:www-data /mnt/backups >> /dev/null
 
 echo "Setting libvirt permissions..."
 sudo adduser www-data libvirt >> /dev/null
