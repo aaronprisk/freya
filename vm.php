@@ -23,7 +23,7 @@ include 'connect.php';
 
 // PAGE CONTENT
 echo '
-
+                <meta http-equiv="refresh" content="10">
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
