@@ -62,6 +62,13 @@ echo '
                     <span>Disks</span></a>
             </li>
 
+            <!-- Nav Item - Vault -->
+            <li class="nav-item">
+                <a class="nav-link" href="backup.php">
+                    <i class="fas fa fa-vault"></i>
+                    <span>Backup</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
