@@ -77,9 +77,6 @@ if (isset($_POST['hostname'])) {
   shell_exec('virsh -c qemu:///system start ' . $vmid);
 }
 
-// CLEAR XML DUMPS
-unlink('/var/www/html/xml/' . $vmid . '.xml');
-
 // RETURN TO MACHINES PAGE
 header("Location: machines.php");
 ?>
