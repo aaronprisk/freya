@@ -63,10 +63,12 @@ sudo chown -R www-data:www-data /var/www/html >> /dev/null
 sudo chown -R www-data:www-data /opt/seidr >> /dev/null
 sudo chown -R www-data:www-data /mnt/backups >> /dev/null
 
-echo "Setting libvirt permissions..."
+echo "Setting directory permissions..."
 sudo adduser www-data libvirt >> /dev/null
 sudo adduser www-data kvm >> /dev/null
 sudo chmod -R 755 /var/lib/libvirt/images
+sudo chmod +x /opt/seidr/seidr-info-backup.sh
+sudo chmod +x /opt/seidr/seidr-thumb.sh
 
 echo "Configuring libvirt..."
 sudo sed -i 's/#listen_tcp = 1/listen_tcp = 1/g' /etc/libvirt/libvirtd.conf
