@@ -52,6 +52,7 @@ virt-install \
              --cdrom ' . $iso_image . ' \
              --network network=' . $network . ' \
              --metadata description=' . $backup . ' \
+             --osinfo detect=on \
 > /dev/null 2>/dev/null &');
 
 // ECHO COMMAND
