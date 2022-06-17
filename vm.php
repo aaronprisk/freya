@@ -101,7 +101,7 @@ echo "<strong>Status:</strong> ";
 if (libvirt_domain_get_id($res) != "-1") {echo "Online " . "&#128994;";} else {echo "Offline " . "&#128308;";} ;
 echo "<br>";
 $os = libvirt_domain_get_xml_desc($res, '/domain/metadata/*/*/@id');
-echo "<strong>OS: </strong>" . $os;
+// echo "<strong>OS: </strong>" . $os;
 echo "<hr>";
 echo "<strong>Memory:</strong> " . number_format($memgb,2) . " GB";
 echo "<br>";
