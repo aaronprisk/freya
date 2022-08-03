@@ -11,6 +11,7 @@ Freya - A magically simple KVM solution
 
 ## System Requirements
 * Freya is currently supported on Ubuntu 22.04 with RHEL 9 support coming soon.
+* NetworkManager is required.
 * Freya server will also need hardware virtualization support.
 
 ## Installation
