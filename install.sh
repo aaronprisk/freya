@@ -42,6 +42,9 @@ sudo apt-get install php apache2 libapache2-mod-php php-libvirt-php php-xml -y >
 echo "Installing virtualization tools..."
 sudo apt-get install bridge-utils cpu-checker libvirt-clients libvirt-daemon libvirt-daemon-system qemu qemu-kvm virtinst -y
 
+echo "Installing additional required packages..."
+sudo apt-get install imagemagick -y >> /dev/null
+
 echo "Downloading latest noVNC version..."
 wget https://github.com/novnc/noVNC/archive/refs/tags/v1.3.0.tar.gz -P /tmp
 tar -xvf /tmp/v1.3.0.tar.gz -C /tmp
