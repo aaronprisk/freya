@@ -2,7 +2,7 @@
 
 Freya - A magically simple KVM solution
 
-## Planned features:
+## Planned features
 * Simple and modern interface.
 * Manage multiple hosts from one dashboard.
 * Snapshotting and full VM backups.
@@ -12,8 +12,7 @@ Freya - A magically simple KVM solution
 
 ## System Requirements
 * Freya is currently supported on Ubuntu 22.04 with RHEL 9 support coming soon.
-* NetworkManager is required.
-* Freya server will also need hardware virtualization support.
+* Hardware virtualization support.
 
 ## Installation
 To install Freya, download files via a web browser or use git clone.
