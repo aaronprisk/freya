@@ -40,6 +40,7 @@ echo "Installing web server stack..."
 sudo apt-get install php apache2 libapache2-mod-php php-libvirt-php php-xml -y >> /dev/null
 
 echo "Installing virtualization tools..."
+echo "When prompted to restart system services, select OK."
 sudo apt-get install bridge-utils cpu-checker libvirt-clients libvirt-daemon libvirt-daemon-system qemu qemu-kvm virtinst -y
 
 echo "Installing additional required packages..."
@@ -80,6 +81,11 @@ sudo sed -i 's/#listen_addr = "192.168.0.1"/listen_addr = "0.0.0.0"/g' /etc/libv
 echo "Configuring PHP..."
 sudo sed -i 's/post_max_size = 8M/post_max_size = 10000M/g' /etc/php/8.1/apache2/php.ini
 sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 10000M/g' /etc/php/8.1/apache2/php.ini
+
+echo "Registering Seidr Services..."
+mv /opt/seidr/seidr-thumb.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable seidr-thumb.service
 
 echo "Restarting services..."
 sudo systemctl restart libvirtd
