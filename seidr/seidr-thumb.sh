@@ -2,7 +2,7 @@
 # Seidr Thumbnailer
 # Service that takes routine snapshots of running KVM domains to use as thumbnails in Freya interface
 
-for VMS in $(virsh -c qemu:///system list --name);
+for VMS in $(virsh -c qemu:///system list --name); do
     if [ ! -d /var/www/html/thumbs/$VMS ]
     then
         mkdir /var/www/html/thumbs/$VMS
