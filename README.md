@@ -1,4 +1,5 @@
-# Freya
+![freya logo](https://github.com/aaronprisk/freya/raw/main/img/freya-bg.png)
+
 Freya - A magically simple KVM solution
 
 ## Planned features:
