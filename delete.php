@@ -48,7 +48,7 @@ echo '
 echo '
                                  <form method="POST" action="vm-delete.php" enctype="multipart/form-data">
                                    <div class="custom-control custom-checkbox small">
-                                     <input type="checkbox" class="custom-control-input" id="customCheck" name="confirm">
+                                     <input type="checkbox" class="custom-control-input" id="customCheck" name="confirm" required>
                                      <label class="custom-control-label" for="customCheck">Check to Confirm</label>
                                    </div>
                                    <hr>
