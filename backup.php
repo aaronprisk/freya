@@ -26,6 +26,10 @@ $df = intval(disk_free_space("/") / 1000000000) ;
 $ds = intval(disk_total_space("/") / 1000000000) ;
 $da = ($ds - $df);
 
+// PULL BACKUP VARIABLES FROM BACKUP.XML
+$buxml = simplexml_load_file('config/backup.xml');
+$retention=$buxml->retention;
+
 // PAGE CONTENT
 echo '
                 <!-- End of Topbar -->
@@ -36,7 +40,7 @@ echo '
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800"></h1>
 
-                       <!-- Start Settings Card Section -->
+                       <!-- Start Locations Card Section -->
                        <h1>Backup</h1>
                        <div class="row">
                          <div class="col-lg-6">
@@ -46,7 +50,47 @@ echo '
                                 </div>
                                 <div class="card-body">
                                  <p><strong>Current backup location:</strong> ' . $backdir . '
-                                 <p><strong>Backup Used:</strong> ' . $da . 'GB / ' . $ds . ' GB<p>
+                                 <p><strong>Disk Used:</strong> ' . $da . 'GB / ' . $ds . ' GB<p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End Locations Card Section -->
+                        </div>
+
+                       <!-- Start Schedule Card Section -->
+                       <div class="row">
+                         <div class="col-lg-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Backup Schedule</h6>
+                                </div>
+                                <div class="card-body">
+                                  <strong>Days:</strong><br>
+                                  <form action="vm-schedule.php" method="post">
+                                    <input type="checkbox" id="sun" name="day[]" value="Sun">
+                                    <label for="sun"> Sun</label>
+                                    <input type="checkbox" id="mon" name="day[]" value="Mon">
+                                    <label for="mon"> Mon</label>
+                                    <input type="checkbox" id="tue" name="day[]" value="Tue">
+                                    <label for="tues"> Tue</label>
+                                    <input type="checkbox" id="wed" name="day[]" value="Wed">
+                                    <label for="wed"> Wed</label>
+                                    <input type="checkbox" id="thu" name="day[]" value="Thu">
+                                    <label for="thurs"> Thu</label>
+                                    <input type="checkbox" id="fri" name="day[]" value="Fri">
+                                    <label for="fri"> Fri</label>
+                                    <input type="checkbox" id="sat" name="day[]" value="Sat">
+                                    <label for="sat"> Sat</label>
+                                    <hr>
+                                    <strong>Time:</strong><br>
+                                    <input type="time" id="time" name="time" required>
+                                    <hr>
+                                    <strong>Retention:</strong><br>
+                                    <input type="number" id="retention" name="retention" value=' . $retention . ' required>
+                                    <hr>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                  </form>
                                 </div>
                             </div>
                         </div>
