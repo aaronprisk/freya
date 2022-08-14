@@ -21,7 +21,7 @@ $vmid = $_REQUEST['vmid'];
 mkdir("/mnt/backups/" . $vmid, 0755);
 
 // GENERATE BACKUP XML
-$domainbackup = simplexml_load_file('/opt/seidr/backup.xml');
+$domainbackup = simplexml_load_file('/opt/seidr/vmbackup.xml');
 $domainbackup->disks->disk[0]->target->attributes()->file="/mnt/backups/" . $vmid . '/' . $vmid . '-' . date('Y-m-d') . ".qcow2";
 $domainbackup->asXML('/mnt/backups/' . $vmid . '/' . $vmid . '.xml');
 
