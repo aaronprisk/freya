@@ -27,7 +27,7 @@ $ds = intval(disk_total_space("/") / 1000000000) ;
 $da = ($ds - $df);
 
 // PULL BACKUP VARIABLES FROM BACKUP.XML
-$buxml = simplexml_load_file('config/backup.xml');
+$buxml = simplexml_load_file('/opt/seidr/backup.xml');
 $retention=$buxml->retention;
 
 // PAGE CONTENT
