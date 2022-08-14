@@ -1,0 +1,10 @@
+[Unit]
+Description=Creates backup of user selected vms in Freya
+Wants=seidr-backup.timer
+
+[Service]
+Type=oneshot
+ExecStart=/opt/seidr/seidr-backup.sh
+
+[Install]
+WantedBy=multi-user.target

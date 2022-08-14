@@ -1,0 +1,10 @@
+[Unit]
+Description=VM backup schedule created by Freya
+Requires=seidr-backup.service
+
+[Timer]
+Unit=seidr-backup.service
+OnCalendar=* *-01-01 00:00:00
+
+[Install]
+WantedBy=timers.target
