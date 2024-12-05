@@ -79,8 +79,8 @@ sudo sed -i 's/#listen_tcp = 1/listen_tcp = 1/g' /etc/libvirt/libvirtd.conf
 sudo sed -i 's/#listen_addr = "192.168.0.1"/listen_addr = "0.0.0.0"/g' /etc/libvirt/libvirtd.conf
 
 echo "Configuring PHP..."
-sudo sed -i 's/post_max_size = 8M/post_max_size = 10000M/g' /etc/php/8.1/apache2/php.ini
-sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 10000M/g' /etc/php/8.1/apache2/php.ini
+sudo sed -i 's/post_max_size = 8M/post_max_size = 10000M/g' /etc/php/8.3/apache2/php.ini
+sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 10000M/g' /etc/php/8.3/apache2/php.ini
 
 echo "Registering Seidr Services..."
 mv /opt/seidr/seidr-thumb.service /etc/systemd/system/
