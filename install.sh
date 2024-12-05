@@ -37,7 +37,7 @@ sudo apt-get update >> /dev/null
 sudo apt-get install git wget -y
 
 echo "Installing web server stack..."
-sudo apt-get install php apache2 libapache2-mod-php php-libvirt-php php-xml -y >> /dev/null
+sudo apt-get install php apache2 libapache2-mod-php php-libvirt-php php8.3-libvirt-php php-xml -y >> /dev/null
 
 echo "Installing virtualization tools..."
 echo "When prompted to restart system services, select OK."
