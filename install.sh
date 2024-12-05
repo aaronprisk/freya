@@ -41,7 +41,7 @@ sudo apt-get install php apache2 libapache2-mod-php php-libvirt-php php-xml -y >
 
 echo "Installing virtualization tools..."
 echo "When prompted to restart system services, select OK."
-sudo apt-get install bridge-utils cpu-checker libvirt-clients libvirt-daemon libvirt-daemon-system qemu qemu-kvm virtinst -y
+sudo apt-get install bridge-utils cpu-checker libvirt-clients libvirt-daemon libvirt-daemon-system qemu-system-x86 virtinst -y
 
 echo "Installing additional required packages..."
 sudo apt-get install imagemagick -y >> /dev/null
